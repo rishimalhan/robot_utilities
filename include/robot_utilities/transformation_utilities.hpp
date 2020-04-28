@@ -62,7 +62,7 @@ public:
 	// Euler Angles to Rotation Vectors Conversion
 	// Input bxbybz as a single nx9 Matrix
 	// Output is ZYX euler angles in radians 	
-	static Eigen::MatrixXd bxbybz2eul(Eigen::MatrixXd);
+	static Eigen::MatrixXd bxbybz2eul(Eigen::MatrixXd,std::string);
 
 	// Rotation Vectors Conversion
 	// Input bxbybz as a single nx9 Matrix

@@ -265,6 +265,7 @@ bool ikHandler::solveIK(Eigen::VectorXd _target){
             return status;
         if (urIKPatch)
             apply_URikPatch(sol_mat);
+        
         // std::cout<< "\n\n" << sol_mat << "\n\n";
         status = false; // Make status false again so we can check if solutions exist
         double config_dist = std::numeric_limits<double>::infinity();

@@ -293,7 +293,7 @@ Eigen::Matrix3d rtf::eul2rot(Eigen::MatrixXd eul_angles, std::string seq)
 
 ///////////////////////////////////////////////////////////
 
-Eigen::MatrixXd rtf::bxbybz2eul(Eigen::MatrixXd bxbybz)
+Eigen::MatrixXd rtf::bxbybz2eul(Eigen::MatrixXd bxbybz, std::string seq)
 {
 	Eigen::MatrixXd Gx(1,3), Gy(1,3), Gz(1,3);
 	Gx << 1,0,0;
@@ -312,7 +312,7 @@ Eigen::MatrixXd rtf::bxbybz2eul(Eigen::MatrixXd bxbybz)
 		R(2,0) = bxbybz(i,0)*Gz(0,0)+bxbybz(i,1)*Gz(0,1)+bxbybz(i,2)*Gz(0,2);
 		R(2,1) = bxbybz(i,3)*Gz(0,0)+bxbybz(i,4)*Gz(0,1)+bxbybz(i,5)*Gz(0,2);
 		R(2,2) = bxbybz(i,6)*Gz(0,0)+bxbybz(i,7)*Gz(0,1)+bxbybz(i,8)*Gz(0,2);
-		cba.row(i) = rtf::rot2eul(R,"ZYX");	
+		cba.row(i) = rtf::rot2eul(R,seq);	
 	}
 	return cba;	
 }
