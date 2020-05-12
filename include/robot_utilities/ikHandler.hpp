@@ -31,6 +31,7 @@ private:
     std::vector<double> OptVarub;   // Upper Bounds
     KDL::Frame FK_tcp;
     Eigen::VectorXd target;
+    // Eigen::VectorXd mapped_target;
     Eigen::MatrixXd world_T_robBase;
     Eigen::MatrixXd robBase_T_world;
     Eigen::MatrixXd permutations;
@@ -52,7 +53,14 @@ public:
     double obj_func(const std::vector<double>&, std::vector<double>&);
     double err_func(const std::vector<double>&);
     bool solveIK(Eigen::VectorXd);
+    // bool solveIK(Eigen::MatrixXd);
+    // bool solveIK(Eigen::MatrixXf);
+    // bool solveIK(Eigen::Matrix4d);
+    // bool solveIK(Eigen::Matrix4f);
+    // bool solveIK(Eigen::VectorXd, std::string);
+
     void setTcpFrame(const Eigen::MatrixXd&);
+    Eigen::VectorXd getFFTarget();
     // For UR series
     void apply_URikPatch(Eigen::MatrixXd &);
     void enable_URikPatch();

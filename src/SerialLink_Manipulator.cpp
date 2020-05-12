@@ -187,6 +187,7 @@ void SerialLink_Manipulator::populate_robot_joint_limits (){
 
 void SerialLink_Manipulator::getRandJointArray(KDL::JntArray & randJoints)
 {
+    randJoints.resize(NrOfJoints);
     for (int i = 0; i<NrOfJoints; ++i)
         randJoints(i) = fRand(Joints_ll(i), Joints_ul(i));
 }
